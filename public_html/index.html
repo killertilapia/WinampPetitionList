@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html ng-app="winampPapp">
+    <head>
+        <title>WinAmp Change.org</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width">
+        
+        <link href="css/metro-bootstrap.css" rel="stylesheet" type="text/css">
+        <link href="css/metro-bootstrap-responsive.css" rel="stylesheet" type="text/css">
+    </head>
+    <body class="metro" data-ng-controller="MainCTRL">
+        <header class="bg-dark">
+            <nav class="navigation-bar">
+                <nav class="navigation-bar-content">
+                <div class="element">
+                    <a class="dropdown-toggle" href="#">WinAmp Change.org</a>
+                    <ul class="dropdown-menu" data-role="dropdown">
+                        <li><a href="#">Main</a></li>
+                        <li><a href="#">File Open</a></li>
+                        <li class="divider"></li>
+                        <li><a href="#">Print...</a></li>
+                        <li class="divider"></li>
+                        <li><a href="#">Exit</a></li>
+                    </ul>
+                </div>
+
+                <span class="element-divider"></span>
+                <a class="element brand" href="#"><span class="icon-spin"></span></a>
+                <a class="element brand" href="#"><span class="icon-printer"></span></a>
+                <span class="element-divider"></span>
+
+                <div class="element input-element">
+                    <form>
+                        <div class="input-control text">
+                            <input type="text" placeholder="Search...">
+                            <button class="btn-search"></button>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="element place-right">
+                    <a class="dropdown-toggle" href="#">
+                        <span class="icon-cog"></span>
+                    </a>
+                    <ul class="dropdown-menu place-right" data-role="dropdown">
+                        <li><a href="#">Products</a></li>
+                        <li><a href="#">Download</a></li>
+                        <li><a href="#">Support</a></li>
+                        <li><a href="#">Buy Now</a></li>
+                    </ul>
+                </div>
+                <span class="element-divider place-right"></span>
+                <a class="element place-right" href="#"><span class="icon-locked-2"></span></a>
+                <span class="element-divider place-right"></span>
+                <button class="element image-button image-left place-right">
+                    Jaypax
+                    <img src="http://www.gravatar.com/avatar/a4275836181731c496093e27716adf6a"/>
+                </button>
+            </nav>
+            </nav>
+        </header>
+       
+        <div id="main-content" class="grid container" >
+            <div class="row">
+                <div class="span6">
+                    <h2>All Signatures : {{theList.length}}
+                        <span ng-show="loading"><img src="img/ajaxloader.GIF" alt="ajax-loader"></span>
+                    </h2>
+                    <p> {{page}} of {{total_pages}} pages </p>
+                    <button ng-click='getAllFromPh()'>Load List</button>
+                    <table class="table striped condensed">
+                        <thead>
+                            <tr>
+                                <td class="text-left">Name</td>
+                                <td class="text-left">Country</td>
+                                <td class="text-left">City</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat='signature in theList'>
+                                <td>{{signature.name}}</td>
+                                <td>{{signature.country_name}}</td>
+                                <td>{{signature.city}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="span6">
+                    <h2>All Signatures From Ph : {{theListFromPh.length}}</h2>
+                    <p> 1 of 1 pages</p>
+                    <button ng-click='filterFromPh()' ng-disabled="phFilterStatus">Filter All Now</button>
+                    <table class="table striped condensed"> 
+                        <thead>
+                            <tr>
+                                <td class="text-left">Name</td>
+                                <td class="text-left">Country</td>
+                                <td class="text-left">City</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat='signature in theListFromPh'>
+                                <td>{{signature.name}}</td>
+                                <td>{{signature.country_name}}</td>
+                                <td>{{signature.city}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        
+        
+        <script src="js/jquery/jquery.min.js"></script>
+        <script src="js/jquery/jquery.widget.min.js"></script>
+        <script src="js/jquery/jquery.easing.1.3.min.js"></script>
+        <script src="js/jquery/jquery.mousewheel.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.2/underscore-min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.0/angular.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.0/angular-resource.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui/0.4.0/angular-ui.min.js"></script>
+        <script src="js/angular-google-maps.js"></script>
+        <script src="js/metro/metro-core.js"></script>
+        <script src="js/metro/metro-table.js"></script>
+        <script src="js/myScript.js"></script>
+        <script src="js/myController.js"></script>
+    </body>
+</html>
