@@ -1,4 +1,3 @@
-
 winampPapp.controller("MainCTRL", function(_, $scope, changeOrgService){
     var sigList = changeOrgService.getSignatures('1363762').get();    
     
@@ -62,21 +61,3 @@ winampPapp.factory('changeOrgService', function($resource){
 winampPapp.factory('_', function() {
     return window._; // underscore has been loaded before this script
 }); 
-
-/*
-    this.getSignatures = function($scope){        
-        $http.jsonp('https://api.change.org/v1/petitions/1363762/signatures?api_key=e29974d554ddda437b54e5ed180109dfb9455bd750800a8feb9f993b3d2cd018&callback=JSON_CALLBACK')
-            .success(function(result){
-                $scope.signatures = result.signatures;
-            }
-        );
-    };
-
-    this.getPetitionId = function($scope) {
-        $http.jsonp('http://api.change.org/v1/petitions/get_id?api_key=e29974d554ddda437b54e5ed180109dfb9455bd750800a8feb9f993b3d2cd018&petition_url=https%3A%2F%2Fwww.change.org%2Fen-AU%2Fpetitions%2Faol-keep-winamp-alive-or-let-it-go-open-source&callback=JSON_CALLBACK')
-            .success(function(result){
-                return result.petition_id;
-            }
-        );
-    };
-*/
